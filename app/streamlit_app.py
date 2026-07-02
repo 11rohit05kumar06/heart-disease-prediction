@@ -1,9 +1,14 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
 
+# Get absolute path relative to this script
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "heart_disease_model.pkl")
+
 # Load trained model
-model = joblib.load(r'../models/heart_disease_model.pkl')
+model = joblib.load(MODEL_PATH)
 
 # App title
 st.title("❤️ Heart Disease Prediction System")
